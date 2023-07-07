@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://brvrl72ko2m6m"]
+
+[ext_resource type="Texture2D" uid="uid://715htdnogxou" path="res://Assets/SPRITES/ROCK.png" id="1_0y1y6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_20yc2"]
+size = Vector2(163, 155)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(8.25, 7.75)
+texture = ExtResource("1_0y1y6")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_20yc2")
