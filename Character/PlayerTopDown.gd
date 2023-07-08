@@ -1,13 +1,17 @@
 extends CharacterBody2D
 
+@onready var massbar = get_node("/root/TestLevel/StatusBars/DisplayContainer/ResourceDisplay/massbar")
+
 @export var max_speed = 600
 @export var accel = 1500
 @export var friction = 600
 
 var input = Vector2.ZERO
+var mass : float = 40
 
 func _physics_process(delta):
 	player_movement(delta)
+	update_ui()
 
 func get_input():
 	input.x = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
@@ -28,3 +32,15 @@ func player_movement(delta):
 		velocity = velocity.limit_length(max_speed)
 	
 	move_and_slide()
+
+#For updating status_bar
+func update_ui():
+	massbar.value = mass
+
+func _on_mass_test_timer_timeout():
+	if mass < 100:
+		mass += 10
+		if mass > 100:
+			mass = 100
+	if mass <= 0:
+		mass = 0
