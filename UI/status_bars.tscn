@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbljsro02oruk"]
+
+[ext_resource type="PackedScene" uid="uid://b2wnf8cusj0bx" path="res://UI/resource_display.tscn" id="2_bbyad"]
+
+[node name="StatusBars" type="GridContainer"]
+offset_right = 40.0
+offset_bottom = 26.0
+scale = Vector2(5, 5)
+columns = 5
+
+[node name="DisplayContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ResourceDisplay" parent="DisplayContainer" instance=ExtResource("2_bbyad")]
+layout_mode = 2

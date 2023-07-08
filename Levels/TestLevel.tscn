@@ -1,14 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://cep3jwpwxg45x"]
+[gd_scene load_steps=4 format=3 uid="uid://cep3jwpwxg45x"]
 
+[ext_resource type="PackedScene" uid="uid://dbljsro02oruk" path="res://UI/status_bars.tscn" id="1_f2ce5"]
 [ext_resource type="PackedScene" uid="uid://brvrl72ko2m6m" path="res://Character/character_body_2d.tscn" id="1_iov7f"]
 [ext_resource type="Script" path="res://Character/PlayerTopDown.gd" id="2_3aj61"]
 
 [node name="TestLevel" type="Node2D"]
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_iov7f")]
+[node name="StatusBars" parent="." instance=ExtResource("1_f2ce5")]
+z_index = 6
+offset_left = -1150.0
+offset_top = -653.0
+offset_right = -689.0
+offset_bottom = -394.0
+
+[node name="Player" parent="." instance=ExtResource("1_iov7f")]
 script = ExtResource("2_3aj61")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.5, 0.5)
 process_callback = 0
 position_smoothing_enabled = true
+
+[node name="mass_test_timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="mass_test_timer" to="Player" method="_on_mass_test_timer_timeout"]
