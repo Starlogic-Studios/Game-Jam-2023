@@ -60,10 +60,10 @@ func keep_player_in_viewport(_delta):
 	var bottom_bound = screen_center.y + screen_size.y / 2
 
 	if position.x < left_bound:
-		position.x = left_bound
+		velocity.x = max_speed
 	elif position.x > right_bound:
-		position.x = right_bound
+		velocity.x = -max_speed
 	if position.y < top_bound:
-		position.y = top_bound
+		velocity.y = max_speed
 	elif position.y > bottom_bound:
-		position.y = bottom_bound
+		velocity.y = -max_speed
