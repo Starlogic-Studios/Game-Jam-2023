@@ -1,10 +1,12 @@
 extends CharacterBody2D
 
 @onready var massbar = get_node("/root/TestLevel/HUD/StatusBars/DisplayContainer/ResourceDisplay/massbar")
+@onready var camera = $Camera2D
 
 @export var max_speed = 600
 @export var accel = 1500
 @export var friction = 600
+@export var rebound = 300
 @export var mass : float = 40
 @export var speed : float = 0
 
@@ -14,6 +16,7 @@ func _physics_process(delta):
 	player_movement(delta)
 	update_ui()
 	keep_player_in_viewport(delta)
+	
 
 func get_input():
 	input.x = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
@@ -49,13 +52,18 @@ func _on_mass_test_timer_timeout():
 
 func keep_player_in_viewport(delta):
 	var viewport_rect = get_viewport_rect()
+	var new_rect = viewport_rect
+	new_rect.size.x *= 2
+	new_rect.size.y *= 2
+	new_rect.position.x -= viewport_rect.size.x * 2
+	new_rect.position.y -= viewport_rect.size.y * 2
 	print(position.x, ", ", position.y)
-	print(viewport_rect)
-	if position.x < 0:
-		velocity.x = max_speed/2
-	elif position.x > viewport_rect.size.x:
-		velocity.x = -max_speed/2
-	if position.y < 0:
-		velocity.y = max_speed/2
-	elif position.y > viewport_rect.size.y:
-		velocity.y = -max_speed/2
+	print(new_rect)
+	if position.x < new_rect.position.x:
+		velocity.x = rebound
+	elif position.x > new_rect.size.x:
+		velocity.x = -rebound
+	if position.y < new_rect.position.y:
+		velocity.y = rebound
+	elif position.y > new_rect.size.y:
+		velocity.y = -rebound
