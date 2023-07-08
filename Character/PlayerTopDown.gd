@@ -53,7 +53,7 @@ func _on_mass_test_timer_timeout():
 
 func keep_player_in_viewport(_delta):
 	var screen_center = camera.position + camera.offset
-	var screen_size = get_viewport_rect().size
+	var screen_size = get_viewport_rect().size / camera.zoom
 	var left_bound = screen_center.x - screen_size.x / 2
 	var right_bound = screen_center.x + screen_size.x / 2
 	var top_bound = screen_center.y - screen_size.y / 2
