@@ -1,14 +1,15 @@
+# Player script
 extends CharacterBody2D
 
-@onready var massbar = get_node("/root/TestLevel/HUD/StatusBars/DisplayContainer/ResourceDisplay/massbar")
-@onready var camera = $Camera2D
+@onready var massbar = get_node("/root/TestLevel/Camera2D/HUD/StatusBars/DisplayContainer/ResourceDisplay/massbar")
+@onready var camera = get_node("/root/TestLevel/Camera2D")
 
 @export var max_speed = 600
 @export var accel = 1500
 @export var friction = 600
 @export var rebound = 300
-@export var mass : float = 40
-@export var speed : float = 0
+@export var characterMass : float = 40
+@export var characterVelocity : float = 1
 
 var input = Vector2.ZERO
 
@@ -40,30 +41,29 @@ func player_movement(delta):
 
 #For updating status_bar
 func update_ui():
-	massbar.value = mass
+	massbar.value = characterMass
 
 func _on_mass_test_timer_timeout():
-	if mass < 100:
-		mass += 10
-		if mass > 100:
-			mass = 100
-	if mass <= 0:
-		mass = 0
+	if characterMass < 100:
+		characterMass += 10
+		if characterMass > 100:
+			characterMass = 100
+	if characterMass <= 0:
+		characterMass = 0
 
-func keep_player_in_viewport(delta):
-	var viewport_rect = get_viewport_rect()
-	var new_rect = viewport_rect
-	new_rect.size.x *= 2
-	new_rect.size.y *= 2
-	new_rect.position.x -= viewport_rect.size.x * 2
-	new_rect.position.y -= viewport_rect.size.y * 2
-	print(position.x, ", ", position.y)
-	print(new_rect)
-	if position.x < new_rect.position.x:
-		velocity.x = rebound
-	elif position.x > new_rect.size.x:
-		velocity.x = -rebound
-	if position.y < new_rect.position.y:
-		velocity.y = rebound
-	elif position.y > new_rect.size.y:
-		velocity.y = -rebound
+func keep_player_in_viewport(_delta):
+	var screen_center = camera.position + camera.offset
+	var screen_size = get_viewport_rect().size
+	var left_bound = screen_center.x - screen_size.x / 2
+	var right_bound = screen_center.x + screen_size.x / 2
+	var top_bound = screen_center.y - screen_size.y / 2
+	var bottom_bound = screen_center.y + screen_size.y / 2
+
+	if position.x < left_bound:
+		position.x = left_bound
+	elif position.x > right_bound:
+		position.x = right_bound
+	if position.y < top_bound:
+		position.y = top_bound
+	elif position.y > bottom_bound:
+		position.y = bottom_bound

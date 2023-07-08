@@ -1,32 +1,39 @@
-[gd_scene load_steps=5 format=3 uid="uid://cep3jwpwxg45x"]
+[gd_scene load_steps=6 format=3 uid="uid://cep3jwpwxg45x"]
 
 [ext_resource type="Script" path="res://Levels/TestLevel.gd" id="1_5ygki"]
 [ext_resource type="PackedScene" uid="uid://dbljsro02oruk" path="res://UI/status_bars.tscn" id="1_f2ce5"]
 [ext_resource type="PackedScene" uid="uid://brvrl72ko2m6m" path="res://Character/character_body_2d.tscn" id="1_iov7f"]
 [ext_resource type="Script" path="res://Character/PlayerTopDown.gd" id="2_3aj61"]
+[ext_resource type="Texture2D" uid="uid://tpfqau2gpnq6" path="res://Assets/Our/background1 (blue).png" id="5_hrsru"]
 
 [node name="TestLevel" type="Node2D"]
 script = ExtResource("1_5ygki")
 
-[node name="HUD" type="CanvasLayer" parent="."]
-follow_viewport_enabled = true
-follow_viewport_scale = 2.0
-
-[node name="StatusBars" parent="HUD" instance=ExtResource("1_f2ce5")]
-offset_left = -1150.0
-offset_top = -653.0
-offset_right = -689.0
-offset_bottom = -394.0
-metadata/_edit_use_anchors_ = true
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -2336.0
+offset_top = -31120.0
+offset_right = 2328.0
+offset_bottom = 1441.0
+texture = ExtResource("5_hrsru")
 
 [node name="Player" parent="." instance=ExtResource("1_iov7f")]
 script = ExtResource("2_3aj61")
 max_speed = 1000
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.25, 0.25)
 process_callback = 0
 position_smoothing_enabled = true
+
+[node name="HUD" type="CanvasLayer" parent="Camera2D"]
+follow_viewport_enabled = true
+follow_viewport_scale = 2.0
+
+[node name="StatusBars" parent="Camera2D/HUD" instance=ExtResource("1_f2ce5")]
+offset_left = -1150.0
+offset_top = -653.0
+offset_right = -689.0
+offset_bottom = -394.0
+metadata/_edit_use_anchors_ = true
 
 [node name="mass_test_timer" type="Timer" parent="."]
 autostart = true
