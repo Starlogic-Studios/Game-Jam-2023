@@ -5,9 +5,10 @@ extends CharacterBody2D
 @export var max_speed = 600
 @export var accel = 1500
 @export var friction = 600
+@export var mass : float = 40
+@export var speed : float = 0
 
 var input = Vector2.ZERO
-var mass : float = 40
 
 func _physics_process(delta):
 	player_movement(delta)
@@ -48,11 +49,13 @@ func _on_mass_test_timer_timeout():
 
 func keep_player_in_viewport(delta):
 	var viewport_rect = get_viewport_rect()
+	print(position.x, ", ", position.y)
+	print(viewport_rect)
 	if position.x < 0:
-		velocity.x = max_speed
+		velocity.x = max_speed/2
 	elif position.x > viewport_rect.size.x:
-		velocity.x = -max_speed
+		velocity.x = -max_speed/2
 	if position.y < 0:
-		velocity.y = max_speed
+		velocity.y = max_speed/2
 	elif position.y > viewport_rect.size.y:
-		velocity.y = -max_speed
+		velocity.y = -max_speed/2
