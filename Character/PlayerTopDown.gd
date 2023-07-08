@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var massbar = get_node("/root/TestLevel/StatusBars/DisplayContainer/ResourceDisplay/massbar")
+@onready var massbar = get_node("/root/TestLevel/HUD/StatusBars/DisplayContainer/ResourceDisplay/massbar")
 
 @export var max_speed = 600
 @export var accel = 1500

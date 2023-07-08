@@ -6,8 +6,10 @@
 
 [node name="TestLevel" type="Node2D"]
 
-[node name="StatusBars" parent="." instance=ExtResource("1_f2ce5")]
-z_index = 6
+[node name="HUD" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="StatusBars" parent="HUD" instance=ExtResource("1_f2ce5")]
 offset_left = -1150.0
 offset_top = -653.0
 offset_right = -689.0
