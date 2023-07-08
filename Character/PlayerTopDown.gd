@@ -12,6 +12,7 @@ var mass : float = 40
 func _physics_process(delta):
 	player_movement(delta)
 	update_ui()
+	keep_player_in_viewport(delta)
 
 func get_input():
 	input.x = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
@@ -44,3 +45,14 @@ func _on_mass_test_timer_timeout():
 			mass = 100
 	if mass <= 0:
 		mass = 0
+
+func keep_player_in_viewport(delta):
+	var viewport_rect = get_viewport_rect()
+	if position.x < 0:
+		velocity.x = max_speed
+	elif position.x > viewport_rect.size.x:
+		velocity.x = -max_speed
+	if position.y < 0:
+		velocity.y = max_speed
+	elif position.y > viewport_rect.size.y:
+		velocity.y = -max_speed
