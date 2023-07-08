@@ -12,6 +12,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	while camera.position.y > -1000:
+	while camera.position.y > -28000:
 		await get_tree().create_timer(0.3).timeout  # Wait for 2 seconds
 		camera.position.y -= player.characterVelocity
