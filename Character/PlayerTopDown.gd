@@ -1,17 +1,23 @@
+# Player script
 extends CharacterBody2D
 
-@onready var massbar = get_node("/root/TestLevel/HUD/StatusBars/DisplayContainer/ResourceDisplay/massbar")
+@onready var massbar = get_node("/root/TestLevel/Camera2D/HUD/StatusBars/DisplayContainer/ResourceDisplay/massbar")
+@onready var camera = get_node("/root/TestLevel/Camera2D")
 
 @export var max_speed = 600
 @export var accel = 1500
 @export var friction = 600
+@export var rebound = 300
+@export var characterMass : float = 40
+@export var characterVelocity : float = 1
 
 var input = Vector2.ZERO
-var mass : float = 40
 
 func _physics_process(delta):
 	player_movement(delta)
 	update_ui()
+	keep_player_in_viewport(delta)
+	
 
 func get_input():
 	input.x = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
@@ -35,12 +41,29 @@ func player_movement(delta):
 
 #For updating status_bar
 func update_ui():
-	massbar.value = mass
+	massbar.value = characterMass
 
 func _on_mass_test_timer_timeout():
-	if mass < 100:
-		mass += 10
-		if mass > 100:
-			mass = 100
-	if mass <= 0:
-		mass = 0
+	if characterMass < 100:
+		characterMass += 10
+		if characterMass > 100:
+			characterMass = 100
+	if characterMass <= 0:
+		characterMass = 0
+
+func keep_player_in_viewport(_delta):
+	var screen_center = camera.position + camera.offset
+	var screen_size = get_viewport_rect().size / camera.zoom
+	var left_bound = screen_center.x - screen_size.x / 2
+	var right_bound = screen_center.x + screen_size.x / 2
+	var top_bound = screen_center.y - screen_size.y / 2
+	var bottom_bound = screen_center.y + screen_size.y / 2
+
+	if position.x < left_bound:
+		velocity.x = max_speed
+	elif position.x > right_bound:
+		velocity.x = -max_speed
+	if position.y < top_bound:
+		velocity.y = max_speed
+	elif position.y > bottom_bound:
+		velocity.y = -max_speed
