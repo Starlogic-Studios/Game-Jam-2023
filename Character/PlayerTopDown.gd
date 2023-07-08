@@ -1,8 +1,8 @@
-# Player script
 extends CharacterBody2D
 
 @onready var massbar = get_node("/root/TestLevel/Camera2D/HUD/StatusBars/DisplayContainer/ResourceDisplay/massbar")
 @onready var camera = get_node("/root/TestLevel/Camera2D")
+@onready var background = get_node("/root/TestLevel/LevelImage")
 
 @export var max_speed = 600
 @export var accel = 1500

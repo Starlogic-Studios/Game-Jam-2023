@@ -10,10 +10,11 @@
 script = ExtResource("1_5ygki")
 
 [node name="LevelImage" type="TextureRect" parent="."]
-offset_left = -2336.0
-offset_top = -31120.0
-offset_right = 2336.0
-offset_bottom = 1497.0
+offset_left = -2364.0
+offset_top = -32000.0
+offset_right = -2236.0
+offset_bottom = -31100.0
+scale = Vector2(37, 37)
 texture = ExtResource("5_hrsru")
 
 [node name="Player" parent="." instance=ExtResource("1_iov7f")]
