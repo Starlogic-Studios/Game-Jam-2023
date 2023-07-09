@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bsf6pkd5faw0w"]
+[gd_scene load_steps=14 format=3 uid="uid://bsf6pkd5faw0w"]
 
 [ext_resource type="Script" path="res://Levels/TestLevel.gd" id="1_5apxv"]
 [ext_resource type="Script" path="res://Levels/ParallaxBackground.gd" id="2_r6ane"]
@@ -12,6 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://84s04hg44iu5" path="res://Assets/Our/redLayers/background red (haze).png" id="7_b7vtc"]
 [ext_resource type="Texture2D" uid="uid://bla2np58ecc7g" path="res://Assets/Our/redLayers/background red (stars 2).png" id="8_2rsx3"]
 [ext_resource type="Texture2D" uid="uid://b4xp4wrsc17vh" path="res://Assets/Our/redLayers/background red (white stars).png" id="9_i5qr6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wsbd0"]
+radius = 75.5379
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_5apxv")
@@ -85,11 +88,16 @@ texture = ExtResource("4_x3005")
 offset = Vector2(1, 0)
 hframes = 12
 
+[node name="StaticBody2D" type="StaticBody2D" parent="ParallaxBackground/ParallaxLayer5/MercuryExplode-sheet"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParallaxBackground/ParallaxLayer5/MercuryExplode-sheet/StaticBody2D"]
+position = Vector2(0.959213, 0.71936)
+shape = SubResource("CircleShape2D_wsbd0")
+
 [node name="Player" parent="." instance=ExtResource("5_juhs3")]
 position = Vector2(611, 289)
 scale = Vector2(3, 3)
 script = ExtResource("6_2s8yb")
-max_speed = 800
 friction = 200
 
 [node name="mass_test_timer" type="Timer" parent="."]

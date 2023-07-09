@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bolq504xtvwem"
-path="res://.godot/imported/dark-matter.png-3dfa205d789f16db65d2e76edcdcac0b.ctex"
+uid="uid://bb7xs4ld87u4e"
+path="res://.godot/imported/Speed Bar Fill1.png-220851cc9545ed7e27443139b329123c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/PARTICLES/dark-matter.png"
-dest_files=["res://.godot/imported/dark-matter.png-3dfa205d789f16db65d2e76edcdcac0b.ctex"]
+source_file="res://Assets/SPRITES/Speed Bar Fill1.png"
+dest_files=["res://.godot/imported/Speed Bar Fill1.png-220851cc9545ed7e27443139b329123c.ctex"]
 
 [params]
 
