@@ -126,10 +126,10 @@ autostart = true
 scene_to_load = ExtResource("15_wmdre")
 
 [node name="TransitionButton" type="CheckButton" parent="HUD" node_paths=PackedStringArray("transitioner")]
-offset_left = 386.0
-offset_top = 91.0
-offset_right = 430.0
-offset_bottom = 115.0
+offset_left = -0.999969
+offset_top = 587.0
+offset_right = 43.0
+offset_bottom = 611.0
 scale = Vector2(2.92, 2.48)
 focus_mode = 0
 script = ExtResource("15_3ld7u")
