@@ -47,7 +47,7 @@ autostart = true
 autostart = true
 
 [node name="Missile" parent="." instance=ExtResource("7_g1nl5")]
-position = Vector2(331, 263)
+position = Vector2(598, 136)
 
 [connection signal="timeout" from="mass_test_timer" to="Player" method="_on_mass_test_timer_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
