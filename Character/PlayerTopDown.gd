@@ -22,8 +22,8 @@ func _physics_process(delta):
 	keep_player_in_viewport(delta)
 	rotation += rotation_speed * delta
 	update_size()  # Call this function here
-	parallaxSpeed += 2
-	print(parallaxSpeed)
+	# parallaxSpeed += 2
+	# print(parallaxSpeed)
 
 func get_input():
 	input.x = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
