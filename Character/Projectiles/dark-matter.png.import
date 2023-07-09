@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bolq504xtvwem"
-path="res://.godot/imported/dark-matter.png-3dfa205d789f16db65d2e76edcdcac0b.ctex"
+uid="uid://dl024q2ekhf3h"
+path="res://.godot/imported/dark-matter.png-d81c6543a9555db71a9c89f75ec0adab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/PARTICLES/dark-matter.png"
-dest_files=["res://.godot/imported/dark-matter.png-3dfa205d789f16db65d2e76edcdcac0b.ctex"]
+source_file="res://Character/Projectiles/dark-matter.png"
+dest_files=["res://.godot/imported/dark-matter.png-d81c6543a9555db71a9c89f75ec0adab.ctex"]
 
 [params]
 

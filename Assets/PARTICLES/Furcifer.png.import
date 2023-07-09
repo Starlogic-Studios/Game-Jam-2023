@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://choecglox0l0a"
-path="res://.godot/imported/Furcifer.png-6b5bf7b719ccdf62461aa43352cfda74.ctex"
+path="res://.godot/imported/Furcifer.png-a62862cfcddfd775e85147edb3154195.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Furcifer.png"
-dest_files=["res://.godot/imported/Furcifer.png-6b5bf7b719ccdf62461aa43352cfda74.ctex"]
+source_file="res://Assets/PARTICLES/Furcifer.png"
+dest_files=["res://.godot/imported/Furcifer.png-a62862cfcddfd775e85147edb3154195.ctex"]
 
 [params]
 

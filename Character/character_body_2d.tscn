@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://brvrl72ko2m6m"]
+[gd_scene load_steps=5 format=3 uid="uid://brvrl72ko2m6m"]
 
 [ext_resource type="Texture2D" uid="uid://8jengsk10au5" path="res://Assets/Our/Meteor-Sheet.png" id="1_d0wir"]
+[ext_resource type="PackedScene" uid="uid://bitk83555feuj" path="res://Assets/PARTICLES/AsteroidEmission.tscn" id="2_cd6h5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_idmqe"]
 radius = 12.1655
@@ -13,14 +14,18 @@ glow_strength = 1.35
 
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
 
+[node name="GPUParticles2D" parent="." instance=ExtResource("2_cd6h5")]
+z_index = -1
+position = Vector2(0, 0)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 4)
 shape = SubResource("CircleShape2D_idmqe")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(2, 2, 2, 1)
 show_behind_parent = true
 texture_filter = 1
+position = Vector2(2, -4)
 texture = ExtResource("1_d0wir")
 offset = Vector2(5, 0)
 hframes = 5

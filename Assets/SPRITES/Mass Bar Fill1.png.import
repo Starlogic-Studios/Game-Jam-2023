@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bolq504xtvwem"
-path="res://.godot/imported/dark-matter.png-3dfa205d789f16db65d2e76edcdcac0b.ctex"
+uid="uid://wst54lvvljme"
+path="res://.godot/imported/Mass Bar Fill1.png-2538273f44ed4813337dd9643c38e7fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/PARTICLES/dark-matter.png"
-dest_files=["res://.godot/imported/dark-matter.png-3dfa205d789f16db65d2e76edcdcac0b.ctex"]
+source_file="res://Assets/SPRITES/Mass Bar Fill1.png"
+dest_files=["res://.godot/imported/Mass Bar Fill1.png-2538273f44ed4813337dd9643c38e7fb.ctex"]
 
 [params]
 

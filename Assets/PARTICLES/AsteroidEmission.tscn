@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bitk83555feuj"]
 
-[ext_resource type="Texture2D" uid="uid://ddqfk6718xj81" path="res://Line1.png" id="1_in0rn"]
+[ext_resource type="Texture2D" uid="uid://ddqfk6718xj81" path="res://Assets/PARTICLES/Line1.png" id="1_in0rn"]
 
 [sub_resource type="Gradient" id="Gradient_pw7v5"]
 offsets = PackedFloat32Array(0.00784314, 0.211765, 0.239216, 0.709804, 1)
@@ -14,22 +14,25 @@ width = 100
 emission_shape = 6
 emission_ring_axis = Vector3(0, 0, 1)
 emission_ring_height = 1.0
-emission_ring_radius = 80.0
-emission_ring_inner_radius = 100.0
+emission_ring_radius = 7.0
+emission_ring_inner_radius = 5.0
 particle_flag_align_y = true
 particle_flag_disable_z = true
-gravity = Vector3(0, 0, 0)
+direction = Vector3(0, 1, 0)
+spread = 85.26
+gravity = Vector3(0, 30, 50)
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
-radial_accel_min = -200.0
-radial_accel_max = -100.0
-scale_max = 1.5
+scale_min = 0.5
 color_ramp = SubResource("GradientTexture1D_5emd0")
 hue_variation_min = -1.0
 hue_variation_max = -1.0
 
 [node name="GPUParticles2D" type="GPUParticles2D"]
-position = Vector2(-2, 2)
-amount = 200
+position = Vector2(0, 5)
+amount = 100
 process_material = SubResource("ParticleProcessMaterial_n2ypr")
 texture = ExtResource("1_in0rn")
+lifetime = 0.5
