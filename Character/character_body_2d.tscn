@@ -11,7 +11,7 @@ glow_enabled = true
 glow_intensity = 2.19
 glow_strength = 1.35
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 4)

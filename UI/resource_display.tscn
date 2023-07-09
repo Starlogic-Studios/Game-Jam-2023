@@ -1,22 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://b2wnf8cusj0bx"]
-
-[ext_resource type="Texture2D" uid="uid://d4fpa16tkg5oq" path="res://Assets/SPRITES/EXTRA_LIFE.png" id="2_e66nh"]
+[gd_scene format=3 uid="uid://b2wnf8cusj0bx"]
 
 [node name="ResourceDisplay" type="HBoxContainer"]
 
-[node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color(0.0470588, 1, 1, 1)
-layout_mode = 2
-texture = ExtResource("2_e66nh")
-expand_mode = 3
-stretch_mode = 4
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 2
-text = "0"
-
 [node name="massbar" type="ProgressBar" parent="."]
 modulate = Color(0.0117647, 0.0431373, 1, 1)
-custom_minimum_size = Vector2(200, 30)
+custom_minimum_size = Vector2(100, 10)
 layout_mode = 2
 show_percentage = false
