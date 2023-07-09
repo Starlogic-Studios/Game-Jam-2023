@@ -79,6 +79,25 @@ position = Vector2(576, -2969.03)
 scale = Vector2(9, 8.03339)
 texture = ExtResource("7_4mi1x")
 
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+z_as_relative = false
+position = Vector2(1639, -6229)
+
+[node name="MercuryExplode-sheet" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+z_index = 1
+z_as_relative = false
+position = Vector2(-1071, -6819)
+scale = Vector2(7.82752, 7.82752)
+texture = ExtResource("4_2c55r")
+hframes = 12
+
+[node name="VenusExplosion-sheet" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+z_index = -1
+position = Vector2(-1036, -6843)
+scale = Vector2(9.40595, 9.40595)
+texture = ExtResource("5_2x8xb")
+hframes = 13
+
 [node name="Player" parent="." instance=ExtResource("5_30yfc")]
 position = Vector2(611, 289)
 scale = Vector2(3, 3)
@@ -89,18 +108,5 @@ friction = 200
 
 [node name="mass_test_timer" type="Timer" parent="."]
 autostart = true
-
-[node name="MercuryExplode-sheet" type="Sprite2D" parent="."]
-position = Vector2(573, -13298)
-scale = Vector2(7.82752, 7.82752)
-texture = ExtResource("4_2c55r")
-hframes = 12
-
-[node name="VenusExplosion-sheet" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(567, -13334)
-scale = Vector2(9.40595, 9.40595)
-texture = ExtResource("5_2x8xb")
-hframes = 13
 
 [connection signal="timeout" from="mass_test_timer" to="Player" method="_on_mass_test_timer_timeout"]

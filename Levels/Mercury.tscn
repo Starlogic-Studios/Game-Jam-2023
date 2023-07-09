@@ -73,6 +73,15 @@ position = Vector2(576, -2969.03)
 scale = Vector2(9, 8.03339)
 texture = ExtResource("9_qjqx0")
 
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(48, 6224)
+
+[node name="MercuryExplode-sheet" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+position = Vector2(526, -19336)
+scale = Vector2(5.19545, 5.19545)
+texture = ExtResource("4_1r60l")
+hframes = 12
+
 [node name="Player" parent="." instance=ExtResource("5_m6bqr")]
 position = Vector2(611, 289)
 scale = Vector2(3, 3)
@@ -83,11 +92,5 @@ friction = 200
 
 [node name="mass_test_timer" type="Timer" parent="."]
 autostart = true
-
-[node name="MercuryExplode-sheet" type="Sprite2D" parent="."]
-position = Vector2(546, -13333)
-scale = Vector2(5.19545, 5.19545)
-texture = ExtResource("4_1r60l")
-hframes = 12
 
 [connection signal="timeout" from="mass_test_timer" to="Player" method="_on_mass_test_timer_timeout"]

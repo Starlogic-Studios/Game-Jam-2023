@@ -40,26 +40,24 @@ texture = ExtResource("7_b7vtc")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 z_index = 1
-y_sort_enabled = true
 position = Vector2(0, -7230)
 motion_scale = Vector2(0.7, 0.7)
 motion_mirroring = Vector2(0, 7230)
-
-[node name="Background1(blue)4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-z_as_relative = false
-y_sort_enabled = true
-position = Vector2(576, -2969.03)
-scale = Vector2(9, 8.03339)
-texture = ExtResource("5_7utc6")
 
 [node name="Background1(blue)5" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2(576, -2969.03)
 scale = Vector2(9, 8.03339)
 texture = ExtResource("6_p41xl")
 
+[node name="Background1(blue)6" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(576, -2969)
+scale = Vector2(9, 8.03339)
+texture = ExtResource("5_7utc6")
+
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(0, -7230)
-motion_scale = Vector2(0.1, 0.1)
 motion_mirroring = Vector2(0, 7230)
 
 [node name="Background1(blue)4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
@@ -77,6 +75,16 @@ position = Vector2(576, -2969.03)
 scale = Vector2(9, 8.03339)
 texture = ExtResource("8_2rsx3")
 
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(61, -8843)
+
+[node name="MercuryExplode-sheet" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+position = Vector2(512, -4077)
+scale = Vector2(4.17011, 4.17011)
+texture = ExtResource("4_x3005")
+offset = Vector2(1, 0)
+hframes = 12
+
 [node name="Player" parent="." instance=ExtResource("5_juhs3")]
 position = Vector2(611, 289)
 scale = Vector2(3, 3)
@@ -87,11 +95,5 @@ friction = 200
 
 [node name="mass_test_timer" type="Timer" parent="."]
 autostart = true
-
-[node name="MercuryExplode-sheet" type="Sprite2D" parent="."]
-position = Vector2(583, -13243)
-scale = Vector2(4.17011, 4.17011)
-texture = ExtResource("4_x3005")
-hframes = 12
 
 [connection signal="timeout" from="mass_test_timer" to="Player" method="_on_mass_test_timer_timeout"]
