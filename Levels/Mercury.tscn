@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cep3jwpwxg45x"]
+[gd_scene load_steps=18 format=3 uid="uid://cep3jwpwxg45x"]
 
 [ext_resource type="Script" path="res://Levels/TestLevel.gd" id="1_4bf0x"]
 [ext_resource type="Script" path="res://Levels/ParallaxBackground.gd" id="2_ecsje"]
@@ -12,7 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://dx0n4lpdir6gd" path="res://Assets/Our/blueLayers/background blue (stars 1).png" id="7_lmq35"]
 [ext_resource type="Texture2D" uid="uid://caxnh7mg8rh2t" path="res://Assets/Our/blueLayers/background blue (stars 2).png" id="8_1er4r"]
 [ext_resource type="Texture2D" uid="uid://c36c4fsg8k7in" path="res://Assets/Our/blueLayers/background blue (white stars).png" id="9_qjqx0"]
-[ext_resource type="PackedScene" path="res://UI/hud.tscn" id="13_ndwoy"]
+[ext_resource type="PackedScene" uid="uid://bmchede836xy4" path="res://UI/hud.tscn" id="13_ndwoy"]
+[ext_resource type="PackedScene" uid="uid://usqum2jvo50l" path="res://Levels/Venus.tscn" id="15_ac64p"]
+[ext_resource type="PackedScene" uid="uid://d4jm3py1heji6" path="res://UI/transitioner.tscn" id="15_dytb2"]
+[ext_resource type="Script" path="res://Levels/TransitionButton.gd" id="16_pedyq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_axb3f"]
 radius = 51.3969
@@ -105,4 +108,20 @@ autostart = true
 
 [node name="HUD" parent="." instance=ExtResource("13_ndwoy")]
 
+[node name="Transitioner" parent="HUD" instance=ExtResource("15_dytb2")]
+scene_to_load = ExtResource("15_ac64p")
+metadata/_edit_use_anchors_ = true
+
+[node name="TransitionButton" type="CheckButton" parent="HUD" node_paths=PackedStringArray("transitioner")]
+offset_left = 386.0
+offset_top = 91.0
+offset_right = 430.0
+offset_bottom = 115.0
+scale = Vector2(2.92, 2.48)
+focus_mode = 0
+script = ExtResource("16_pedyq")
+transitioner = NodePath("../Transitioner")
+metadata/_edit_use_anchors_ = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="toggled" from="HUD/TransitionButton" to="HUD/TransitionButton" method="_on_toggled"]

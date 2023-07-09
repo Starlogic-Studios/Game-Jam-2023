@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://usqum2jvo50l"]
+[gd_scene load_steps=18 format=3 uid="uid://usqum2jvo50l"]
 
 [ext_resource type="Script" path="res://Levels/TestLevel.gd" id="1_gevjg"]
 [ext_resource type="Script" path="res://Levels/ParallaxBackground.gd" id="2_gs8nm"]
@@ -12,6 +12,10 @@
 [ext_resource type="Script" path="res://Character/PlayerTopDown.gd" id="6_psgia"]
 [ext_resource type="Texture2D" uid="uid://buxoootfawcl0" path="res://Assets/Our/yellowLayers/background yellow (stars 2).png" id="7_4mi1x"]
 [ext_resource type="Texture2D" uid="uid://co5iyjlc7j0e6" path="res://Assets/Our/yellowLayers/background yellow (white stars).png" id="7_m8sh7"]
+[ext_resource type="PackedScene" uid="uid://bmchede836xy4" path="res://UI/hud.tscn" id="13_f6dip"]
+[ext_resource type="PackedScene" uid="uid://d4jm3py1heji6" path="res://UI/transitioner.tscn" id="14_imt52"]
+[ext_resource type="Script" path="res://Levels/TransitionButton.gd" id="15_3ld7u"]
+[ext_resource type="PackedScene" uid="uid://bsf6pkd5faw0w" path="res://Levels/Earth.tscn" id="15_wmdre"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hlrvb"]
 radius = 36.4102
@@ -116,5 +120,21 @@ one_shot = true
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
+[node name="HUD" parent="." instance=ExtResource("13_f6dip")]
+
+[node name="Transitioner" parent="HUD" instance=ExtResource("14_imt52")]
+scene_to_load = ExtResource("15_wmdre")
+
+[node name="TransitionButton" type="CheckButton" parent="HUD" node_paths=PackedStringArray("transitioner")]
+offset_left = 386.0
+offset_top = 91.0
+offset_right = 430.0
+offset_bottom = 115.0
+scale = Vector2(2.92, 2.48)
+focus_mode = 0
+script = ExtResource("15_3ld7u")
+transitioner = NodePath("../Transitioner")
+
 [connection signal="timeout" from="mass_test_timer" to="Player" method="_on_mass_test_timer_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="toggled" from="HUD/TransitionButton" to="HUD/TransitionButton" method="_on_toggled"]
