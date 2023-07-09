@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var projectiles = [
 	{"scene": preload("res://Character/Projectiles/missile.tscn"), "weight": 50},
-	{"scene": preload("res://Character/Projectiles/metorBits.tscn"), "weight": 100},
+	{"scene": preload("res://Character/Projectiles/metorBits.tscn"), "weight": 250},
 	# {"scene": preload("res://Assets/PARTICLES/dark-matter.tscn"), "weight": 5},
 	# {"scene": preload("res://Assets/PARTICLES/AsteroidEmission.tscn"), "weight": 5},
 	# {"scene": preload("res://Assets/PARTICLES/ClassicExplosion.tscn"), "weight": 5},

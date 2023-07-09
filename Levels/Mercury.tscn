@@ -82,10 +82,12 @@ scale = Vector2(9, 8.03339)
 texture = ExtResource("9_qjqx0")
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(0, -7230)
+z_index = 1
+position = Vector2(37, -7141)
 motion_scale = Vector2(0.1, 0.1)
 
 [node name="MercuryExplode-sheet" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+z_index = 1
 position = Vector2(546, -6103)
 scale = Vector2(5.19545, 5.19545)
 texture = ExtResource("4_1r60l")
@@ -113,10 +115,10 @@ scene_to_load = ExtResource("15_ac64p")
 metadata/_edit_use_anchors_ = true
 
 [node name="TransitionButton" type="CheckButton" parent="HUD" node_paths=PackedStringArray("transitioner")]
-offset_left = 386.0
-offset_top = 91.0
-offset_right = 430.0
-offset_bottom = 115.0
+offset_left = -0.999999
+offset_top = 582.0
+offset_right = 43.0
+offset_bottom = 606.0
 scale = Vector2(2.92, 2.48)
 focus_mode = 0
 script = ExtResource("16_pedyq")
