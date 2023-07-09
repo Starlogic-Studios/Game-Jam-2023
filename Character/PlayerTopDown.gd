@@ -67,19 +67,19 @@ func keep_player_in_viewport(_delta):
 # func update_ui():
 # 	massbar.value = mass
 
-# func _on_mass_test_timer_timeout():
-# 	if mass < 100:
-# 		mass += 10
-# 		if mass > 100:
-# 			mass = 100
-# 	if mass <= 0:
-# 		mass = 0
+func _on_mass_test_timer_timeout():
+	if mass < 100:
+		mass += 10
+		if mass > 100:
+			mass = 100
+	if mass <= 0:
+		mass = 0
 
 func take_mass(amount):
 	mass += amount
 	print("mass gained")
 	if mass >= max_mass:
-	    print("Max mass!")
+		print("Max mass!")
 # 	update_size()  # Call this function here
 
 func take_damage(amount):
@@ -91,12 +91,6 @@ func take_damage(amount):
 func die():
 	print("Player died")
 	queue_free()  # or start a death animation, etc.
-
-func take_mass(amount):
-	mass += amount
-	print("mass gained")
-	if mass >= max_mass:
-		print("Max mass!")
 
 func update_size():
 	# Update the player's size based on mass
