@@ -1,23 +1,19 @@
 extends CharacterBody2D
 
-@onready var massbar = get_node("/root/TestLevel/Camera2D/HUD/StatusBars/DisplayContainer/ResourceDisplay/massbar")
-@onready var camera = get_node("/root/TestLevel/Camera2D")
-@onready var background = get_node("/root/TestLevel/LevelImage")
+# @onready var massbar = get_node("/root/TestLevel/HUD/StatusBars/DisplayContainer/ResourceDisplay/massbar")
+# @onready var camera = $Camera2D  # Add this line
 
 @export var max_speed = 600
 @export var accel = 1500
 @export var friction = 600
-@export var rebound = 300
-@export var characterMass : float = 40
-@export var characterVelocity : float = 1
+@export var camera_speed = 100  # Add this line
 
 var input = Vector2.ZERO
+var mass : float = 40
 
 func _physics_process(delta):
 	player_movement(delta)
-	update_ui()
-	keep_player_in_viewport(delta)
-	
+	keep_player_in_viewport(delta)  # Call this function here
 
 func get_input():
 	input.x = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
@@ -39,31 +35,35 @@ func player_movement(delta):
 	
 	move_and_slide()
 
+# Add this function
+func keep_player_in_viewport(delta):
+	var viewport_rect = get_viewport_rect()
+	var shape = $CollisionShape2D.shape  # Get the player's CollisionShape2D
+	var radius = shape.radius  # Radius of the CircleShape2D
+	var bounce_factor = 0.5  # Adjust this value to change the bounciness
+
+	if position.x - radius < viewport_rect.position.x:
+		position.x = viewport_rect.position.x + radius
+		velocity.x *= -bounce_factor
+	elif position.x + radius > viewport_rect.position.x + viewport_rect.size.x:
+		position.x = viewport_rect.position.x + viewport_rect.size.x - radius
+		velocity.x *= -bounce_factor
+	if position.y - radius < viewport_rect.position.y:
+		position.y = viewport_rect.position.y + radius
+		velocity.y *= -bounce_factor
+	elif position.y + radius > viewport_rect.position.y + viewport_rect.size.y:
+		position.y = viewport_rect.position.y + viewport_rect.size.y - radius
+		velocity.y *= -bounce_factor
+
+
 #For updating status_bar
-func update_ui():
-	massbar.value = characterMass
+# func update_ui():
+# 	massbar.value = mass
 
 func _on_mass_test_timer_timeout():
-	if characterMass < 100:
-		characterMass += 10
-		if characterMass > 100:
-			characterMass = 100
-	if characterMass <= 0:
-		characterMass = 0
-
-func keep_player_in_viewport(_delta):
-	var screen_center = camera.position + camera.offset
-	var screen_size = get_viewport_rect().size / camera.zoom
-	var left_bound = screen_center.x - screen_size.x / 2
-	var right_bound = screen_center.x + screen_size.x / 2
-	var top_bound = screen_center.y - screen_size.y / 2
-	var bottom_bound = screen_center.y + screen_size.y / 2
-
-	if position.x < left_bound:
-		velocity.x = max_speed
-	elif position.x > right_bound:
-		velocity.x = -max_speed
-	if position.y < top_bound:
-		velocity.y = max_speed
-	elif position.y > bottom_bound:
-		velocity.y = -max_speed
+	if mass < 100:
+		mass += 10
+		if mass > 100:
+			mass = 100
+	if mass <= 0:
+		mass = 0
