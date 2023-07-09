@@ -8,13 +8,15 @@ extends CharacterBody2D
 @export var accel = 1500
 @export var friction = 600
 @export var camera_speed = 100  # Add this line
+@export var rotation_speed = 1.0  # The speed of rotation
 
 var input = Vector2.ZERO
 var mass : float = 40
 
 func _physics_process(delta):
 	player_movement(delta)
-	keep_player_in_viewport(delta)
+	keep_player_in_viewport(delta)  # Call this function here
+	rotation += rotation_speed * delta
 
 func get_input():
 	input.x = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))

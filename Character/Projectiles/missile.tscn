@@ -1,7 +1,9 @@
 [gd_scene load_steps=4 format=3 uid="uid://dqj7hgrlf341m"]
 
 [ext_resource type="Script" path="res://Character/Projectiles/Missile.gd" id="1_4w5mi"]
-[ext_resource type="Texture2D" uid="uid://c8hytmm0y40no" path="res://Assets/Our/Acid -Sheet.png" id="2_hsjd8"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_d4747"]
+load_path = "res://.godot/imported/Acid -Sheet.png-5ee8c2fd079e5e2426a8d063b183c7c9.ctex"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hlnq6"]
 radius = 19.0263
@@ -12,7 +14,7 @@ script = ExtResource("1_4w5mi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(3, 1)
-texture = ExtResource("2_hsjd8")
+texture = SubResource("CompressedTexture2D_d4747")
 hframes = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
