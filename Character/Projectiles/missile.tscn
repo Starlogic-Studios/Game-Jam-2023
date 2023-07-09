@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqj7hgrlf341m"]
+
+[ext_resource type="Script" path="res://Character/Projectiles/Missile.gd" id="1_4w5mi"]
+[ext_resource type="Texture2D" path="res://Assets/Our/Missle.png" id="2_hccgy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mg1pi"]
+size = Vector2(24.6094, 47)
+
+[node name="Missile" type="Area2D"]
+script = ExtResource("1_4w5mi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 1)
+rotation = 3.14159
+texture = ExtResource("2_hccgy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mg1pi")
+
+[node name="Lifetime" type="Timer" parent="CollisionShape2D"]

@@ -2,18 +2,18 @@
 
 [ext_resource type="Script" path="res://Levels/TestLevel.gd" id="1_4bf0x"]
 [ext_resource type="Script" path="res://Levels/ParallaxBackground.gd" id="2_ecsje"]
-[ext_resource type="Texture2D" uid="uid://yv2pwyfsuw" path="res://Assets/Our/blueLayers/background blue (space).png" id="3_42x7m"]
+[ext_resource type="Texture2D" uid="uid://dr8kddg8jtvnr" path="res://Assets/Our/blueLayers/background blue (space).png" id="3_42x7m"]
 [ext_resource type="Texture2D" uid="uid://fx170fx4uak2" path="res://Assets/Our/Venus Explode-Sheet.png" id="4_1r60l"]
-[ext_resource type="Texture2D" uid="uid://scae7sb1d8qd" path="res://Assets/Our/blueLayers/background blue (clouds).png" id="4_k02kh"]
-[ext_resource type="Texture2D" uid="uid://c2nhprihto47i" path="res://Assets/Our/blueLayers/background blue (big stars).png" id="5_5ik48"]
+[ext_resource type="Texture2D" uid="uid://dk6c1olpyh43l" path="res://Assets/Our/blueLayers/background blue (clouds).png" id="4_k02kh"]
+[ext_resource type="Texture2D" uid="uid://bkoqxwyt6pimr" path="res://Assets/Our/blueLayers/background blue (big stars).png" id="5_5ik48"]
 [ext_resource type="PackedScene" uid="uid://brvrl72ko2m6m" path="res://Character/character_body_2d.tscn" id="5_m6bqr"]
 [ext_resource type="Script" path="res://Character/PlayerTopDown.gd" id="6_l35jp"]
-[ext_resource type="Texture2D" uid="uid://chnxiw627uce" path="res://Assets/Our/blueLayers/background blue (haze).png" id="6_wojs8"]
-[ext_resource type="Texture2D" uid="uid://dwp1eh73umoek" path="res://Assets/Our/blueLayers/background blue (stars 1).png" id="7_lmq35"]
-[ext_resource type="Texture2D" uid="uid://bw5d7g5xt41eb" path="res://Assets/Our/blueLayers/background blue (stars 2).png" id="8_1er4r"]
-[ext_resource type="Texture2D" uid="uid://c1cdtmpl3tdyu" path="res://Assets/Our/blueLayers/background blue (white stars).png" id="9_qjqx0"]
+[ext_resource type="Texture2D" uid="uid://dtx3quwxoddji" path="res://Assets/Our/blueLayers/background blue (haze).png" id="6_wojs8"]
+[ext_resource type="Texture2D" uid="uid://dx0n4lpdir6gd" path="res://Assets/Our/blueLayers/background blue (stars 1).png" id="7_lmq35"]
+[ext_resource type="Texture2D" uid="uid://caxnh7mg8rh2t" path="res://Assets/Our/blueLayers/background blue (stars 2).png" id="8_1er4r"]
+[ext_resource type="Texture2D" uid="uid://c36c4fsg8k7in" path="res://Assets/Our/blueLayers/background blue (white stars).png" id="9_qjqx0"]
 
-[node name="Game" type="Node2D"]
+[node name="Game2" type="Node2D"]
 script = ExtResource("1_4bf0x")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]

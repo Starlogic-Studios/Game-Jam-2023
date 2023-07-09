@@ -2,18 +2,19 @@
 
 [ext_resource type="Script" path="res://Levels/TestLevel.gd" id="1_gevjg"]
 [ext_resource type="Script" path="res://Levels/ParallaxBackground.gd" id="2_gs8nm"]
-[ext_resource type="Texture2D" uid="uid://b6maqd6it7cw0" path="res://Assets/Our/yellowLayers/background yellow (space).png" id="3_405ix"]
-[ext_resource type="Texture2D" uid="uid://si1djorwwevl" path="res://Assets/Our/yellowLayers/background yellow (big stars).png" id="4_0o4nb"]
+[ext_resource type="Texture2D" uid="uid://byioq3hnsm73" path="res://Assets/Our/yellowLayers/background yellow (space).png" id="3_405ix"]
+[ext_resource type="Texture2D" uid="uid://doc0suo0rfqih" path="res://Assets/Our/yellowLayers/background yellow (big stars).png" id="4_0o4nb"]
 [ext_resource type="Texture2D" uid="uid://c6k2gnmjergs2" path="res://Assets/Our/Mercury Explode-Sheet.png" id="4_2c55r"]
 [ext_resource type="Texture2D" uid="uid://cb0u004hkxnab" path="res://Assets/Our/Mercury Explosion-Sheet.png" id="5_2x8xb"]
 [ext_resource type="PackedScene" uid="uid://brvrl72ko2m6m" path="res://Character/character_body_2d.tscn" id="5_30yfc"]
-[ext_resource type="Texture2D" uid="uid://joun5x0wxu1m" path="res://Assets/Our/yellowLayers/background yellow (haze).png" id="5_u41i0"]
-[ext_resource type="Texture2D" uid="uid://qnf0e5bjbkt3" path="res://Assets/Our/yellowLayers/background yellow (clouds).png" id="6_d637o"]
+[ext_resource type="Texture2D" uid="uid://w8crgfrmc6ep" path="res://Assets/Our/yellowLayers/background yellow (haze).png" id="5_u41i0"]
+[ext_resource type="Texture2D" uid="uid://cfeelycb3y6i1" path="res://Assets/Our/yellowLayers/background yellow (clouds).png" id="6_d637o"]
 [ext_resource type="Script" path="res://Character/PlayerTopDown.gd" id="6_psgia"]
-[ext_resource type="Texture2D" uid="uid://cwv60nsm1kf7p" path="res://Assets/Our/yellowLayers/background yellow (stars 2).png" id="7_4mi1x"]
-[ext_resource type="Texture2D" uid="uid://dsawxok3y0p0m" path="res://Assets/Our/yellowLayers/background yellow (white stars).png" id="7_m8sh7"]
+[ext_resource type="Texture2D" uid="uid://buxoootfawcl0" path="res://Assets/Our/yellowLayers/background yellow (stars 2).png" id="7_4mi1x"]
+[ext_resource type="Texture2D" uid="uid://co5iyjlc7j0e6" path="res://Assets/Our/yellowLayers/background yellow (white stars).png" id="7_m8sh7"]
 
 [node name="Game" type="Node2D"]
+position = Vector2(0, -2)
 script = ExtResource("1_gevjg")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]

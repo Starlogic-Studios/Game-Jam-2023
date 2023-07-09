@@ -1,17 +1,8 @@
 extends Node2D
 
-@onready var player = $Player
-@onready var camera = $Camera2D
+@onready var missile = preload("res://Character/Projectiles/Missile.tscn")
 
-
-# Called when the node enters the scene tree for the first time.
-# func _ready():
-# 	camera.position = Vector2.ZERO
-# 	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(_delta):
-#	while camera.position.y > -28000:
-#		await get_tree().create_timer(0.3).timeout  # Wait for 2 seconds
-#		camera.position.y -= player.characterVelocity
+func _on_timer_timeout():
+	var projectile = missile.instantiate()
+	projectile.position = Vector2(randf_range(50, 1100), 0)
+	add_child(projectile)
