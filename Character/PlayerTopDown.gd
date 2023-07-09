@@ -75,6 +75,12 @@ func take_mass(amount):
 		print("Max mass!")
 	update_size()
 
+func take_damage(amount):
+	mass -= amount
+	print("hit")
+	if mass <= 0:
+		die()
+
 func die():
 	print("Player died")
 	queue_free()  # or start a death animation, etc.
