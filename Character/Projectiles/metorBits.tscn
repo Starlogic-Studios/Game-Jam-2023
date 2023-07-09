@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c6nbmqskeyw6f"]
+[gd_scene load_steps=4 format=3 uid="uid://ckn1mieaktktb"]
 
 [ext_resource type="Script" path="res://Character/Projectiles/metorBits.gd" id="1_rmk5g"]
-[ext_resource type="Texture2D" path="res://Assets/Our/Meteor Bit.png" id="2_gh8or"]
+[ext_resource type="Texture2D" uid="uid://cmi2jtgd2jvhu" path="res://Assets/Our/Meteor Bit.png" id="2_gh8or"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5yfqj"]
 size = Vector2(10, 11)

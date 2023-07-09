@@ -1,6 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://dy8u62t0y4f5i"]
+[gd_scene load_steps=12 format=3 uid="uid://xgcfny8j2fb5"]
 
-[ext_resource type="Texture2D" uid="uid://rxx222pu7hsr" path="res://Assets/Our/Explosion Test-Sheet.png" id="1_4vu3o"]
+[ext_resource type="Texture2D" uid="uid://dapoye6wdid3m" path="res://Assets/Our/Explosion Test-Sheet.png" id="1_4vu3o"]
 [ext_resource type="Script" path="res://Character/Projectiles/explosion.gd" id="2_04jg0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nrkbd"]
