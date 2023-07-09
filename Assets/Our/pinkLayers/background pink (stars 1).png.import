@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5b3e13hnxt6n"
-path="res://.godot/imported/background red (clouds).png-5024b6de5371a20eb65a7f8a1cb7eeb1.ctex"
+uid="uid://c3lapw6lewoup"
+path="res://.godot/imported/background pink (stars 1).png-56e3c51913eaa29171aa1350b16d6b3f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Our/redLayers/background red (clouds).png"
-dest_files=["res://.godot/imported/background red (clouds).png-5024b6de5371a20eb65a7f8a1cb7eeb1.ctex"]
+source_file="res://Assets/Our/pinkLayers/background pink (stars 1).png"
+dest_files=["res://.godot/imported/background pink (stars 1).png-56e3c51913eaa29171aa1350b16d6b3f.ctex"]
 
 [params]
 

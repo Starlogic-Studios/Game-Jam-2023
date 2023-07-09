@@ -1,0 +1,99 @@
+[gd_scene load_steps=13 format=3 uid="uid://bsf6pkd5faw0w"]
+
+[ext_resource type="Script" path="res://Levels/TestLevel.gd" id="1_5apxv"]
+[ext_resource type="Script" path="res://Levels/ParallaxBackground.gd" id="2_r6ane"]
+[ext_resource type="Texture2D" uid="uid://dg8e0jcpmf3l" path="res://Assets/Our/redLayers/background red (space).png" id="3_7lmjl"]
+[ext_resource type="Texture2D" uid="uid://kue7vplojsyg" path="res://Assets/Our/redLayers/background red (stars 1).png" id="4_sdjlv"]
+[ext_resource type="Texture2D" uid="uid://deftdfbjep14l" path="res://Assets/Our/Earth Explode -Sheet.png" id="4_x3005"]
+[ext_resource type="Texture2D" uid="uid://5b3e13hnxt6n" path="res://Assets/Our/redLayers/background red (clouds).png" id="5_7utc6"]
+[ext_resource type="PackedScene" uid="uid://brvrl72ko2m6m" path="res://Character/character_body_2d.tscn" id="5_juhs3"]
+[ext_resource type="Script" path="res://Character/PlayerTopDown.gd" id="6_2s8yb"]
+[ext_resource type="Texture2D" uid="uid://dxpc63u2w2rdw" path="res://Assets/Our/redLayers/background red (big stars).png" id="6_p41xl"]
+[ext_resource type="Texture2D" uid="uid://84s04hg44iu5" path="res://Assets/Our/redLayers/background red (haze).png" id="7_b7vtc"]
+[ext_resource type="Texture2D" uid="uid://bla2np58ecc7g" path="res://Assets/Our/redLayers/background red (stars 2).png" id="8_2rsx3"]
+[ext_resource type="Texture2D" uid="uid://b4xp4wrsc17vh" path="res://Assets/Our/redLayers/background red (white stars).png" id="9_i5qr6"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_5apxv")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("2_r6ane")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, -7230)
+motion_mirroring = Vector2(0, 7230)
+
+[node name="Background1(blue)" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(576, -2969.03)
+scale = Vector2(9, 8.03339)
+texture = ExtResource("3_7lmjl")
+
+[node name="Background1(blue)2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(576, -2969.03)
+scale = Vector2(9, 8.03339)
+texture = ExtResource("4_sdjlv")
+
+[node name="Background1(blue)4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(576, -2969)
+scale = Vector2(9, 8.03339)
+texture = ExtResource("7_b7vtc")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = 1
+position = Vector2(0, -7230)
+motion_scale = Vector2(0.7, 0.7)
+motion_mirroring = Vector2(0, 7230)
+
+[node name="Background1(blue)5" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(576, -2969.03)
+scale = Vector2(9, 8.03339)
+texture = ExtResource("6_p41xl")
+
+[node name="Background1(blue)6" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(576, -2969)
+scale = Vector2(9, 8.03339)
+texture = ExtResource("5_7utc6")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, -7230)
+motion_mirroring = Vector2(0, 7230)
+
+[node name="Background1(blue)4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(576, -2969.03)
+scale = Vector2(9, 8.03339)
+texture = ExtResource("9_i5qr6")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, -7230)
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(0, 7230)
+
+[node name="Background1(blue)5" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(576, -2969.03)
+scale = Vector2(9, 8.03339)
+texture = ExtResource("8_2rsx3")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(61, -8843)
+
+[node name="MercuryExplode-sheet" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+position = Vector2(512, -4077)
+scale = Vector2(4.17011, 4.17011)
+texture = ExtResource("4_x3005")
+offset = Vector2(1, 0)
+hframes = 12
+
+[node name="Player" parent="." instance=ExtResource("5_juhs3")]
+position = Vector2(611, 289)
+scale = Vector2(3, 3)
+script = ExtResource("6_2s8yb")
+max_speed = 800
+accel = 1000
+friction = 200
+
+[node name="mass_test_timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="mass_test_timer" to="Player" method="_on_mass_test_timer_timeout"]
