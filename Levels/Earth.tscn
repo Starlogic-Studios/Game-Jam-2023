@@ -106,13 +106,12 @@ friction = 200
 [node name="HUD" parent="." instance=ExtResource("13_djww4")]
 
 [node name="Transitioner" parent="HUD" instance=ExtResource("14_ct6qi")]
-scene_to_load = null
 
 [node name="TransitionButton" type="CheckButton" parent="HUD" node_paths=PackedStringArray("transitioner")]
-offset_left = 386.0
-offset_top = 91.0
-offset_right = 430.0
-offset_bottom = 115.0
+offset_left = 1.00003
+offset_top = 586.0
+offset_right = 45.0
+offset_bottom = 610.0
 scale = Vector2(2.92, 2.48)
 focus_mode = 0
 script = ExtResource("16_nqi0y")
