@@ -1,10 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://brvrl72ko2m6m"]
+[gd_scene load_steps=4 format=3 uid="uid://brvrl72ko2m6m"]
 
 [ext_resource type="Texture2D" uid="uid://8jengsk10au5" path="res://Assets/Our/Meteor-Sheet.png" id="1_d0wir"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_idmqe"]
+radius = 28.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7eykx"]
+emission_shape = 1
+emission_sphere_radius = 5.04
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 4)
+shape = SubResource("CircleShape2D_idmqe")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_d0wir")
 offset = Vector2(5, 0)
 hframes = 5
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(-2, 4)
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_7eykx")
