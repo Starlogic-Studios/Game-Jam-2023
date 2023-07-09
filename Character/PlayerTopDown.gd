@@ -1,24 +1,24 @@
 extends CharacterBody2D
 
-# @onready var massbar = get_node("/root/TestLevel/HUD/StatusBars/DisplayContainer/ResourceDisplay/massbar")
-# @onready var camera = $Camera2D  # Add this line
-
-
-@export var max_speed = 600
-@export var accel = 1500
-@export var friction = 600
-@export var camera_speed = 100  # Add this line
-@export var rotation_speed = 1.0  # The speed of rotation
+@export var base_speed = 300
+@export var base_accel = 100
+@export var friction = 60
+@export var camera_speed = 100
+@export var rotation_speed = 0.5
+@export var base_size = Vector2(20, 20)  # Adjust this value as needed
 
 var input = Vector2.ZERO
 var mass : float = 40
 var max_mass = 100
 var health = 11
 
+
 func _physics_process(delta):
 	player_movement(delta)
-	keep_player_in_viewport(delta)  # Call this function here
+	move_and_slide()
+	keep_player_in_viewport(delta)
 	rotation += rotation_speed * delta
+	update_size()  # Call this function here
 
 func get_input():
 	input.x = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
@@ -27,6 +27,9 @@ func get_input():
 
 func player_movement(delta):
 	input = get_input()
+	# Adjust acceleration and maximum speed based on mass and speed
+	var adjusted_accel = base_accel * (max_mass / mass)
+	var adjusted_max_speed = base_speed * (max_mass / mass)
 	# Adding friction
 	if input == Vector2.ZERO:
 		if velocity.length() > (friction * delta):
@@ -35,10 +38,10 @@ func player_movement(delta):
 			velocity = Vector2.ZERO
 	# Adding acceleration
 	else: 
-		velocity += (input * accel * delta)
-		velocity = velocity.limit_length(max_speed)
+		velocity += (input * adjusted_accel * delta)
+		velocity = velocity.limit_length(adjusted_max_speed)
 	
-	move_and_slide()
+	# move_and_slide()
 
 func keep_player_in_viewport(_delta):
 	var viewport_rect = get_viewport_rect()
@@ -64,13 +67,20 @@ func keep_player_in_viewport(_delta):
 # func update_ui():
 # 	massbar.value = mass
 
-func _on_mass_test_timer_timeout():
-	if mass < 100:
-		mass += 10
-		if mass > 100:
-			mass = 100
-	if mass <= 0:
-		mass = 0
+# func _on_mass_test_timer_timeout():
+# 	if mass < 100:
+# 		mass += 10
+# 		if mass > 100:
+# 			mass = 100
+# 	if mass <= 0:
+# 		mass = 0
+
+func take_mass(amount):
+	mass += amount
+	print("mass gained")
+	if mass >= max_mass:
+	    print("Max mass!")
+# 	update_size()  # Call this function here
 
 func take_damage(amount):
 	health -= amount
@@ -87,3 +97,8 @@ func take_mass(amount):
 	print("mass gained")
 	if mass >= max_mass:
 		print("Max mass!")
+
+func update_size():
+	# Update the player's size based on mass
+	var size_factor = mass / max_mass
+	scale = base_size * size_factor

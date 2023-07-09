@@ -29,6 +29,7 @@ scale = Vector2(9, 8.03339)
 texture = ExtResource("3_42x7m")
 
 [node name="Background1(blue)2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+z_index = 1
 position = Vector2(576, -2969.03)
 scale = Vector2(9, 8.03339)
 texture = ExtResource("4_k02kh")
@@ -38,15 +39,15 @@ position = Vector2(576, -2969.03)
 scale = Vector2(9, 8.03339)
 texture = ExtResource("5_5ik48")
 
+[node name="Background1(blue)4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(576, -2969.03)
+scale = Vector2(9, 8.03339)
+texture = ExtResource("6_wojs8")
+
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(0, -7230)
 motion_scale = Vector2(0.7, 0.7)
 motion_mirroring = Vector2(0, 7230)
-
-[node name="Background1(blue)" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2(576, -2969.03)
-scale = Vector2(9, 8.03339)
-texture = ExtResource("6_wojs8")
 
 [node name="Background1(blue)2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2(576, -2969.03)
@@ -73,21 +74,24 @@ position = Vector2(576, -2969.03)
 scale = Vector2(9, 8.03339)
 texture = ExtResource("9_qjqx0")
 
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, -7230)
+motion_scale = Vector2(0.1, 0.1)
+
+[node name="MercuryExplode-sheet" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+position = Vector2(546, -6103)
+scale = Vector2(5.19545, 5.19545)
+texture = ExtResource("4_1r60l")
+hframes = 12
+
 [node name="Player" parent="." instance=ExtResource("5_m6bqr")]
-position = Vector2(611, 289)
+position = Vector2(602, 298)
 scale = Vector2(3, 3)
 script = ExtResource("6_l35jp")
 max_speed = 800
-accel = 1000
 friction = 200
 
 [node name="mass_test_timer" type="Timer" parent="."]
 autostart = true
-
-[node name="MercuryExplode-sheet" type="Sprite2D" parent="."]
-position = Vector2(546, -13333)
-scale = Vector2(5.19545, 5.19545)
-texture = ExtResource("4_1r60l")
-hframes = 12
 
 [connection signal="timeout" from="mass_test_timer" to="Player" method="_on_mass_test_timer_timeout"]

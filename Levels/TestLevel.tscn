@@ -37,7 +37,6 @@ position = Vector2(611, 289)
 scale = Vector2(3, 3)
 script = ExtResource("2_3aj61")
 max_speed = 800
-accel = 1000
 friction = 200
 
 [node name="mass_test_timer" type="Timer" parent="."]
