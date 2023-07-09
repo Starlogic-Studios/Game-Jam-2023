@@ -8,4 +8,5 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	scroll_offset.y += 80*delta
+	var parallaxSpeed = get_node("../Player").parallaxSpeed
+	scroll_offset.y += parallaxSpeed*delta
