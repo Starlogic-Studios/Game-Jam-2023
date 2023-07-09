@@ -18,3 +18,5 @@ texture = ExtResource("2_hccgy")
 shape = SubResource("RectangleShape2D_mg1pi")
 
 [node name="Lifetime" type="Timer" parent="CollisionShape2D"]
+
+[connection signal="body_entered" from="." to="." method="_on_Missile_body_entered"]

@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var missile = preload("res://Character/Projectiles/Missile.tscn")
+@onready var missile = preload("res://Character/Projectiles/missile.tscn")
 
 func _on_timer_timeout():
 	var projectile = missile.instantiate()

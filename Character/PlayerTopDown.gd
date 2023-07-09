@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 # @onready var massbar = get_node("/root/TestLevel/HUD/StatusBars/DisplayContainer/ResourceDisplay/massbar")
 # @onready var camera = $Camera2D  # Add this line
-@onready var missile = $Missile
+
 
 @export var max_speed = 600
 @export var accel = 1500
@@ -12,6 +12,7 @@ extends CharacterBody2D
 
 var input = Vector2.ZERO
 var mass : float = 40
+var health = 10
 
 func _physics_process(delta):
 	player_movement(delta)
@@ -70,3 +71,13 @@ func _on_mass_test_timer_timeout():
 			mass = 100
 	if mass <= 0:
 		mass = 0
+
+func take_damage(amount):
+	health -= amount
+	print("hit")
+	if health <= 0:
+		die()
+
+func die():
+	print("Player died")
+	queue_free()  # or start a death animation, etc.
