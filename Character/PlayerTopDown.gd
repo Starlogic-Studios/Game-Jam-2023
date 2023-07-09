@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 # @onready var massbar = get_node("/root/TestLevel/HUD/StatusBars/DisplayContainer/ResourceDisplay/massbar")
 # @onready var camera = $Camera2D  # Add this line
+@onready var missile = $Missile
 
 @export var max_speed = 600
 @export var accel = 1500
@@ -38,7 +39,7 @@ func player_movement(delta):
 	move_and_slide()
 
 # Add this function
-func keep_player_in_viewport(delta):
+func keep_player_in_viewport(_delta):
 	var viewport_rect = get_viewport_rect()
 	var shape = $CollisionShape2D.shape  # Get the player's CollisionShape2D
 	var radius = shape.radius  # Radius of the CircleShape2D
