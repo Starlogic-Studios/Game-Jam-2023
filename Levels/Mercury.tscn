@@ -113,10 +113,10 @@ scene_to_load = ExtResource("15_ac64p")
 metadata/_edit_use_anchors_ = true
 
 [node name="TransitionButton" type="CheckButton" parent="HUD" node_paths=PackedStringArray("transitioner")]
-offset_left = 386.0
-offset_top = 91.0
-offset_right = 430.0
-offset_bottom = 115.0
+offset_left = 1.00003
+offset_top = 589.0
+offset_right = 45.0
+offset_bottom = 613.0
 scale = Vector2(2.92, 2.48)
 focus_mode = 0
 script = ExtResource("16_pedyq")

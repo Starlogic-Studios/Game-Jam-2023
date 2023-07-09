@@ -5,7 +5,6 @@ class_name Player
 @export var base_speed = 300
 @export var base_accel = 500
 @export var friction = 60
-@export var camera_speed = 100
 @export var rotation_speed = 0.5
 @export var base_size = Vector2(10, 10)  # Adjust this value as needed
 
@@ -13,12 +12,18 @@ var input = Vector2.ZERO
 var mass : float = 25
 var max_mass = 100
 
+
+@export var parallaxSpeed : float =800
+
+
 func _physics_process(delta):
 	player_movement(delta)
 	move_and_slide()
 	keep_player_in_viewport(delta)
 	rotation += rotation_speed * delta
 	update_size()  # Call this function here
+	parallaxSpeed += 2
+	print(parallaxSpeed)
 
 func get_input():
 	input.x = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
