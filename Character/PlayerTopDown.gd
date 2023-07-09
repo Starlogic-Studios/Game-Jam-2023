@@ -13,7 +13,7 @@ extends CharacterBody2D
 var input = Vector2.ZERO
 var mass : float = 40
 var max_mass = 100
-var health = 10
+var health = 11
 
 func _physics_process(delta):
 	player_movement(delta)
@@ -40,7 +40,6 @@ func player_movement(delta):
 	
 	move_and_slide()
 
-# Add this function
 func keep_player_in_viewport(_delta):
 	var viewport_rect = get_viewport_rect()
 	var shape = $CollisionShape2D.shape  # Get the player's CollisionShape2D

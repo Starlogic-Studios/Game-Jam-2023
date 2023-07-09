@@ -11,8 +11,8 @@ func _physics_process(delta):
 	position += velocity * delta
 
 func _on_Missile_body_entered(body):
-	if body.get_parent().has_method("take_damage"):
-		body.get_parent().take_damage(damage)
+	if body.has_method("take_damage"):
+		body.take_damage(damage)
 	var explosion = explosion_scene.instantiate()
 	explosion.global_position = global_position
 	get_parent().add_child(explosion)
