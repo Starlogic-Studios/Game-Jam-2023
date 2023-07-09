@@ -12,7 +12,7 @@ glow_enabled = true
 glow_intensity = 2.19
 glow_strength = 1.35
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
 
 [node name="GPUParticles2D" parent="." instance=ExtResource("2_cd6h5")]
 z_index = -1

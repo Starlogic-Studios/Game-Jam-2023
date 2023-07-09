@@ -1,4 +1,6 @@
+
 [gd_scene load_steps=15 format=3 uid="uid://cep3jwpwxg45x"]
+
 
 [ext_resource type="Script" path="res://Levels/TestLevel.gd" id="1_4bf0x"]
 [ext_resource type="Script" path="res://Levels/ParallaxBackground.gd" id="2_ecsje"]
@@ -12,9 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://dx0n4lpdir6gd" path="res://Assets/Our/blueLayers/background blue (stars 1).png" id="7_lmq35"]
 [ext_resource type="Texture2D" uid="uid://caxnh7mg8rh2t" path="res://Assets/Our/blueLayers/background blue (stars 2).png" id="8_1er4r"]
 [ext_resource type="Texture2D" uid="uid://c36c4fsg8k7in" path="res://Assets/Our/blueLayers/background blue (white stars).png" id="9_qjqx0"]
+
 [ext_resource type="Script" path="res://Levels/MercuryExplode-sheet.gd" id="11_t6edi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xxt0b"]
+
 
 [node name="Game2" type="Node2D"]
 position = Vector2(-2, 0)
@@ -100,5 +104,7 @@ friction = 200
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="HUD" parent="." instance=ExtResource("13_ndwoy")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
