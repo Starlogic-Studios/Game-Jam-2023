@@ -1,17 +1,15 @@
 extends CharacterBody2D
 
 @export var base_speed = 300
-@export var base_accel = 100
+@export var base_accel = 500
 @export var friction = 60
 @export var camera_speed = 100
 @export var rotation_speed = 0.5
-@export var base_size = Vector2(20, 20)  # Adjust this value as needed
+@export var base_size = Vector2(10, 10)  # Adjust this value as needed
 
 var input = Vector2.ZERO
-var mass : float = 40
+var mass : float = 25
 var max_mass = 100
-var health = 11
-
 
 func _physics_process(delta):
 	player_movement(delta)
@@ -27,8 +25,8 @@ func get_input():
 
 func player_movement(delta):
 	input = get_input()
-	# Adjust acceleration and maximum speed based on mass and speed
-	var adjusted_accel = base_accel * (max_mass / mass)
+	# Adjust acceleration and maximum speed based on mass
+	var adjusted_accel = max(base_accel * sqrt(mass / max_mass), 1)  # Acceleration decreases less severely as mass decreases
 	var adjusted_max_speed = base_speed * (max_mass / mass)
 	# Adding friction
 	if input == Vector2.ZERO:
@@ -41,7 +39,7 @@ func player_movement(delta):
 		velocity += (input * adjusted_accel * delta)
 		velocity = velocity.limit_length(adjusted_max_speed)
 	
-	# move_and_slide()
+	move_and_slide()
 
 func keep_player_in_viewport(_delta):
 	var viewport_rect = get_viewport_rect()
@@ -62,11 +60,6 @@ func keep_player_in_viewport(_delta):
 		position.y = viewport_rect.position.y + viewport_rect.size.y - radius
 		velocity.y *= -bounce_factor
 
-
-#For updating status_bar
-# func update_ui():
-# 	massbar.value = mass
-
 func _on_mass_test_timer_timeout():
 	if mass < 100:
 		mass += 10
@@ -76,17 +69,11 @@ func _on_mass_test_timer_timeout():
 		mass = 0
 
 func take_mass(amount):
-	mass += amount
+	mass = min(mass + amount, max_mass)  # Increase mass
 	print("mass gained")
 	if mass >= max_mass:
 		print("Max mass!")
-# 	update_size()  # Call this function here
-
-func take_damage(amount):
-	health -= amount
-	print("hit")
-	if health <= 0:
-		die()
+	update_size()
 
 func die():
 	print("Player died")

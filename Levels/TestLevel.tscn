@@ -38,14 +38,10 @@ scale = Vector2(3, 3)
 script = ExtResource("2_3aj61")
 friction = 200
 
-[node name="mass_test_timer" type="Timer" parent="."]
-autostart = true
-
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
 [node name="Missile" parent="." instance=ExtResource("7_g1nl5")]
 position = Vector2(598, 136)
 
-[connection signal="timeout" from="mass_test_timer" to="Player" method="_on_mass_test_timer_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
