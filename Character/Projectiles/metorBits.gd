@@ -1,9 +1,8 @@
 extends Area2D
 
-@export var speed = 50
+@export var speed = 25
 @export var mass = 1
 
-var explosion_scene = preload("res://Character/Projectiles/explosion.tscn")
 var velocity = Vector2.ZERO
 
 func _physics_process(delta):
@@ -12,7 +11,7 @@ func _physics_process(delta):
 
 func _on_Missile_body_entered(body):
 	if body.has_method("take_mass"):
-		body.take_damage(mass)
+		body.take_mass(mass)
 	queue_free()
 
 func _on_Lifetime_timeout():

@@ -12,6 +12,7 @@ extends CharacterBody2D
 
 var input = Vector2.ZERO
 var mass : float = 40
+var max_mass = 100
 var health = 10
 
 func _physics_process(delta):
@@ -81,3 +82,9 @@ func take_damage(amount):
 func die():
 	print("Player died")
 	queue_free()  # or start a death animation, etc.
+
+func take_mass(amount):
+	mass += amount
+	print("mass gained")
+	if mass >= max_mass:
+		print("Max mass!")

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8h6skqwp2pwq"]
+
+[ext_resource type="Script" path="res://Character/Projectiles/metorBits.gd" id="1_rmk5g"]
+[ext_resource type="Texture2D" path="res://Assets/Our/Meteor Bit.png" id="2_gh8or"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5yfqj"]
+size = Vector2(10, 11)
+
+[node name="MeteorBits" type="Area2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_rmk5g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 1)
+rotation = 3.14159
+texture = ExtResource("2_gh8or")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 1.5)
+shape = SubResource("RectangleShape2D_5yfqj")
+
+[node name="Lifetime" type="Timer" parent="CollisionShape2D"]
+
+[connection signal="body_entered" from="." to="." method="_on_Missile_body_entered" flags=18]
