@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm2pq75twvuss"]
+
+[ext_resource type="Script" path="res://UI/menu.gd" id="1_kb256"]
+[ext_resource type="Texture2D" uid="uid://byioq3hnsm73" path="res://Assets/Our/yellowLayers/background yellow (space).png" id="2_exls2"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_vertical = 0
+script = ExtResource("1_kb256")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = -159.0
+offset_right = 1155.0
+offset_bottom = 900.0
+texture = ExtResource("2_exls2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 90.0
+offset_bottom = 121.0
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../QuitButton")
+text = "Start"
+alignment = 0
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Options"
+alignment = 0
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../StartButton")
+text = "Quit"
+alignment = 0
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
