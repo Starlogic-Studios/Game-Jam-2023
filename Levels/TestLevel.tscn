@@ -1,15 +1,15 @@
 [gd_scene load_steps=8 format=3 uid="uid://cep3jwpwxg45x"]
 
-[ext_resource type="Script" path="res://Levels/TestLevel.gd" id="1_5ygki"]
 [ext_resource type="PackedScene" uid="uid://brvrl72ko2m6m" path="res://Character/character_body_2d.tscn" id="1_iov7f"]
+[ext_resource type="Script" path="res://Levels/Worlds.gd" id="1_xkg8q"]
 [ext_resource type="Script" path="res://Character/PlayerTopDown.gd" id="2_3aj61"]
 [ext_resource type="Script" path="res://Levels/ParallaxBackground.gd" id="2_v8isj"]
 [ext_resource type="Texture2D" uid="uid://c6k2gnmjergs2" path="res://Assets/Our/Mercury Explode-Sheet.png" id="3_jwh1r"]
 [ext_resource type="Texture2D" uid="uid://tpfqau2gpnq6" path="res://Assets/Our/background1 (blue).png" id="5_hrsru"]
 [ext_resource type="PackedScene" uid="uid://dqj7hgrlf341m" path="res://Character/Projectiles/missile.tscn" id="7_g1nl5"]
 
-[node name="Game" type="Node2D"]
-script = ExtResource("1_5ygki")
+[node name="TestLevel" type="Node2D"]
+script = ExtResource("1_xkg8q")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 script = ExtResource("2_v8isj")

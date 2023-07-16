@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://usqum2jvo50l"]
 
-[ext_resource type="Script" path="res://Levels/TestLevel.gd" id="1_gevjg"]
+[ext_resource type="Script" path="res://Levels/Worlds.gd" id="1_rs7yk"]
 [ext_resource type="Script" path="res://Levels/ParallaxBackground.gd" id="2_gs8nm"]
 [ext_resource type="Texture2D" uid="uid://byioq3hnsm73" path="res://Assets/Our/yellowLayers/background yellow (space).png" id="3_405ix"]
 [ext_resource type="Texture2D" uid="uid://doc0suo0rfqih" path="res://Assets/Our/yellowLayers/background yellow (big stars).png" id="4_0o4nb"]
@@ -22,7 +22,7 @@ radius = 36.4102
 
 [node name="Game" type="Node2D"]
 position = Vector2(0, -2)
-script = ExtResource("1_gevjg")
+script = ExtResource("1_rs7yk")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 script = ExtResource("2_gs8nm")
