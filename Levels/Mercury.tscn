@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cep3jwpwxg45x"]
+[gd_scene load_steps=19 format=3 uid="uid://cep3jwpwxg45x"]
 
 [ext_resource type="Script" path="res://Levels/Worlds.gd" id="1_wgdx2"]
 [ext_resource type="Script" path="res://Levels/ParallaxBackground.gd" id="2_ecsje"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://usqum2jvo50l" path="res://Levels/Venus.tscn" id="15_ac64p"]
 [ext_resource type="PackedScene" uid="uid://d4jm3py1heji6" path="res://UI/transitioner.tscn" id="15_dytb2"]
 [ext_resource type="Script" path="res://Levels/TransitionButton.gd" id="16_pedyq"]
+[ext_resource type="PackedScene" uid="uid://c2lt211w4omv" path="res://UI/game_over_screen.tscn" id="17_omivi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_axb3f"]
 radius = 51.3969
@@ -102,6 +103,7 @@ position = Vector2(602, 298)
 scale = Vector2(3, 3)
 script = ExtResource("6_l35jp")
 friction = 200
+mass = 10.0
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
@@ -109,6 +111,7 @@ autostart = true
 [node name="HUD" parent="." instance=ExtResource("13_ndwoy")]
 
 [node name="Transitioner" parent="HUD" instance=ExtResource("15_dytb2")]
+visible = false
 scene_to_load = ExtResource("15_ac64p")
 metadata/_edit_use_anchors_ = true
 
@@ -122,6 +125,9 @@ focus_mode = 0
 script = ExtResource("16_pedyq")
 transitioner = NodePath("../Transitioner")
 metadata/_edit_use_anchors_ = true
+
+[node name="GameOverScreen" parent="HUD" instance=ExtResource("17_omivi")]
+visible = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="toggled" from="HUD/TransitionButton" to="HUD/TransitionButton" method="_on_toggled"]

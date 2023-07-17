@@ -2,18 +2,21 @@ extends CharacterBody2D
 
 class_name Player
 
+signal killed
+
 @export var base_speed = 300
 @export var base_accel = 500
 @export var friction = 60
 @export var rotation_speed = 0.5
 @export var base_size = Vector2(10, 10)  # Adjust this value as needed
 
+@export var mass : float = 25
+@export var max_mass = 100
+
+@onready var player = get_tree().get_first_node_in_group("player")
 var input = Vector2.ZERO
-var mass : float = 25
-var max_mass = 100
 
-
-@export var parallaxSpeed : float =800
+#@export var parallaxSpeed : float =800
 
 
 func _physics_process(delta):
@@ -90,7 +93,9 @@ func take_damage(amount):
 
 func die():
 	print("Player died")
-	queue_free()  # or start a death animation, etc.
+	killed.emit()
+#	queue_free()  # or start a death animation, etc.
+	player.visible = false
 
 func update_size():
 	# Update the player's size based on mass
