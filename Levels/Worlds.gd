@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var god = $HUD/GameOverScreen
 @onready var projectiles = [
 	{"scene": preload("res://Character/Projectiles/missile.tscn"), "weight": 50},
 	{"scene": preload("res://Character/Projectiles/metorBits.tscn"), "weight": 200},
@@ -8,6 +9,13 @@ extends Node2D
 	# {"scene": preload("res://Assets/PARTICLES/ClassicExplosion.tscn"), "weight": 5},
 	# Add more projectile scenes as needed
 ]
+
+var player = null
+
+func _ready():
+	player = get_tree().get_first_node_in_group("player")
+	assert(player!=null)
+	player.killed.connect(_on_player_killed)
 
 func _on_timer_timeout():
 	var projectile_scene = get_random_projectile()
@@ -26,5 +34,9 @@ func get_random_projectile():
 		weight_sum += p.weight
 		if weight_sum > random_weight:
 			return p.scene
-
 	return null  # This should never happen if the weights are set up correctly
+
+func _on_player_killed():
+	await get_tree().create_timer(1.5).timeout
+	god.visible = true
+

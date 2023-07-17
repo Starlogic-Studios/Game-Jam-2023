@@ -103,6 +103,7 @@ position = Vector2(602, 298)
 scale = Vector2(3, 3)
 script = ExtResource("6_l35jp")
 friction = 200
+mass = 10.0
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
@@ -126,6 +127,7 @@ transitioner = NodePath("../Transitioner")
 metadata/_edit_use_anchors_ = true
 
 [node name="GameOverScreen" parent="HUD" instance=ExtResource("17_omivi")]
+visible = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="toggled" from="HUD/TransitionButton" to="HUD/TransitionButton" method="_on_toggled"]
