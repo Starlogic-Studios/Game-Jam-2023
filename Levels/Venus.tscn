@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://usqum2jvo50l"]
+[gd_scene load_steps=19 format=3 uid="uid://usqum2jvo50l"]
 
 [ext_resource type="Script" path="res://Levels/Worlds.gd" id="1_rs7yk"]
 [ext_resource type="Script" path="res://Levels/ParallaxBackground.gd" id="2_gs8nm"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://d4jm3py1heji6" path="res://UI/transitioner.tscn" id="14_imt52"]
 [ext_resource type="Script" path="res://Levels/TransitionButton.gd" id="15_3ld7u"]
 [ext_resource type="PackedScene" uid="uid://bsf6pkd5faw0w" path="res://Levels/Earth.tscn" id="15_wmdre"]
+[ext_resource type="PackedScene" uid="uid://c2lt211w4omv" path="res://UI/game_over_screen.tscn" id="17_88hfb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hlrvb"]
 radius = 36.4102
@@ -134,6 +135,9 @@ scale = Vector2(2.92, 2.48)
 focus_mode = 0
 script = ExtResource("15_3ld7u")
 transitioner = NodePath("../Transitioner")
+
+[node name="GameOverScreen" parent="HUD" instance=ExtResource("17_88hfb")]
+visible = false
 
 [connection signal="timeout" from="mass_test_timer" to="Player" method="_on_mass_test_timer_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

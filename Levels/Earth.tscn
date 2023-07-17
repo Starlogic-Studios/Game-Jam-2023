@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bsf6pkd5faw0w"]
+[gd_scene load_steps=18 format=3 uid="uid://bsf6pkd5faw0w"]
 
 [ext_resource type="Script" path="res://Levels/Worlds.gd" id="1_gnker"]
 [ext_resource type="Script" path="res://Levels/ParallaxBackground.gd" id="2_r6ane"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bmchede836xy4" path="res://UI/hud.tscn" id="13_djww4"]
 [ext_resource type="PackedScene" uid="uid://d4jm3py1heji6" path="res://UI/transitioner.tscn" id="14_ct6qi"]
 [ext_resource type="Script" path="res://Levels/TransitionButton.gd" id="16_nqi0y"]
+[ext_resource type="PackedScene" uid="uid://c2lt211w4omv" path="res://UI/game_over_screen.tscn" id="16_uqrbk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wsbd0"]
 radius = 75.5379
@@ -116,5 +117,8 @@ scale = Vector2(2.92, 2.48)
 focus_mode = 0
 script = ExtResource("16_nqi0y")
 transitioner = NodePath("../Transitioner")
+
+[node name="GameOverScreen" parent="HUD" instance=ExtResource("16_uqrbk")]
+visible = false
 
 [connection signal="toggled" from="HUD/TransitionButton" to="HUD/TransitionButton" method="_on_toggled"]

@@ -103,7 +103,6 @@ position = Vector2(602, 298)
 scale = Vector2(3, 3)
 script = ExtResource("6_l35jp")
 friction = 200
-mass = 10.0
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
