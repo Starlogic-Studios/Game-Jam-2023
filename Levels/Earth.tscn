@@ -83,9 +83,11 @@ scale = Vector2(9, 8.03339)
 texture = ExtResource("9_i5qr6")
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = 1
 position = Vector2(61, -8843)
 
 [node name="MercuryExplode-sheet" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+z_index = 1
 position = Vector2(512, -4077)
 scale = Vector2(4.17011, 4.17011)
 texture = ExtResource("4_x3005")
@@ -122,3 +124,4 @@ transitioner = NodePath("../Transitioner")
 visible = false
 
 [connection signal="toggled" from="HUD/TransitionButton" to="HUD/TransitionButton" method="_on_toggled"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -87,10 +87,12 @@ scale = Vector2(9, 8.03339)
 texture = ExtResource("7_4mi1x")
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = 1
 position = Vector2(0, -7230)
 motion_scale = Vector2(0.3, 0.3)
 
 [node name="MercuryExplode-sheet" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+z_index = 1
 position = Vector2(575, -6065)
 scale = Vector2(7.82752, 7.82752)
 texture = ExtResource("4_2c55r")
